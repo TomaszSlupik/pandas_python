@@ -105,3 +105,65 @@ tab_duplicate_series = pd.Series(tab_duplicate)
 
 print(tab_duplicate_series.drop_duplicates())
 print('-----')
+
+# 12 Modyfikacja danej liczby 
+modification_date = [200,300,400,600]
+
+modification_date_series = pd.Series(modification_date)
+
+modification_date_series[3] = 500
+
+print (modification_date_series)
+print('-----')
+
+# Który indeks jest największy - max 
+time_sport = {
+    'pływanie': 1,
+    'rower': 2,
+    'bieg': 0.5
+}
+
+time_sport_series = pd.Series(time_sport)
+
+print(time_sport_series.idxmax())
+print('-----')
+
+# Który indeks jest najmniejszy - min 
+
+time_run = {
+    'first_run': 2,
+    'second_run': 4,
+    'third_run': 1
+}
+
+time_run_series = pd.Series(time_run)
+
+print(time_run_series.idxmin())
+print('-----')
+
+# count - ile rekordów 
+name_girl = {
+    'first': 'Ola',
+    'second': 'Natalia',
+    'third': 'Aga'
+}
+
+name_girl_series = pd.Series(name_girl)
+print(name_girl_series.count())
+print('-----')
+
+# value_counts - ile mamy poszczególnych rekordów
+coffee_drink = {
+    'pon': 3,
+    'wt:': 1,
+    'śr': 1,
+    'czw': 3,
+    'piat': 1
+}
+
+coffee_drink_series = pd.Series(coffee_drink, name='Liczba rekordów')
+
+print(coffee_drink_series.value_counts())
+print('-----')
+
+# 
