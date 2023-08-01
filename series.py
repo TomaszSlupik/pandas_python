@@ -166,4 +166,79 @@ coffee_drink_series = pd.Series(coffee_drink, name='Liczba rekordów')
 print(coffee_drink_series.value_counts())
 print('-----')
 
-# 
+import pandas as pd
+
+
+# top 2 poduktów 
+price_drink = {
+    "energy": 4,
+    "coffee": 14,
+    "tea": 5
+}
+
+price_drink_series = pd.Series(price_drink)
+
+print(price_drink_series.nlargest(2))
+
+# least 2 produkty
+price_bike = {
+    "argon": 10000,
+    "canyon": 15000,
+    "giant": 25000,
+    "orbea": 17000
+}
+
+price_bike_series = pd.Series(price_bike)
+
+print(price_bike_series.nsmallest(2))
+
+# zaokrąglenie liczb do 2 miejsc 
+
+time_record = {
+    '100 m': 0.5467,
+    '200 m' : 1.873,
+    '400 m': 4.08712
+}
+
+time_record_series = pd.Series(time_record)
+
+print(time_record_series.round(2))
+
+
+# shift i fillna - przesuwanie wartości i zastąpienie czegoś 
+list_of_product = {
+    "wódka": 300,
+    "piwo": 500, 
+    "whisky": 100, 
+    "drink": 50
+}
+
+list_of_product_series = pd.Series(list_of_product)
+
+print(list_of_product_series.shift(2).fillna('Brak produktów'))
+
+# sortowanie 
+sort_product = {
+    "jabłko": 3.99,
+    "ananas": 5.99,
+    "borówki": 9.99,
+    "arbuz": 1.99
+}
+
+sort_product_sort = pd.Series(sort_product)
+
+print(sort_product_sort.sort_values())
+
+# sorotowanie od największych 
+
+sort_name_place = {
+    "zakopane": "z", 
+    "Gdynia": "g",
+    "Poznań": "p"
+}
+
+sort_name_place_series = pd.Series(sort_name_place)
+
+print(sort_name_place_series.sort_values(key=lambda x: x.map({"z": 0, "p": 1, "g": 2})))
+
+
