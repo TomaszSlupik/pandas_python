@@ -241,4 +241,79 @@ sort_name_place_series = pd.Series(sort_name_place)
 
 print(sort_name_place_series.sort_values(key=lambda x: x.map({"z": 0, "p": 1, "g": 2})))
 
+import pandas as pd
 
+# Maksymalna wartości
+number = {
+    "one": 1,
+    "two": 2,
+    "three": 3,
+    "four": 4
+}
+
+number_series = pd.Series(number)
+
+print(number_series.aggregate(max))
+
+print(number_series.nlargest(2))
+
+# Minimalne wartości
+
+number_big = {
+    "100": 100, 
+    "200": 200,
+    "300": 300,
+    "400": 400,
+    "500": 500
+}
+
+number_big_series = pd.Series(number_big)
+
+print(number_big_series.min())
+
+print(number_big_series.nsmallest(3))
+
+# Sumowanie wartości 
+
+sum_number = {
+    "200": 200,
+    "400": 400
+}
+
+sum_number_series = pd.Series (sum_number)
+
+print(str('Sumowana wartość: ') + str(sum_number_series.aggregate(sum)))
+
+# Średnia wartość 
+
+mean_number = [10, 30, 50]
+
+mean_number_series = pd.Series(mean_number)
+
+print(mean_number_series.mean())
+print('----')
+
+# suma, średnia, min, max 
+test_number = [30, 30, 30, 10]
+
+test_number_series = pd.Series(test_number)
+
+print(test_number_series.aggregate(sum))
+print(test_number_series.aggregate('mean'))
+print(test_number_series.aggregate('max'))
+print(test_number_series.aggregate('min'))
+
+# apply - zamiana na wartości całkowite 
+int_and_float = [10, 20.99, 11.22, 14.33, 16.21, 19.76]
+
+int_and_float_series = pd.Series(int_and_float, name='Wartości całkowite')
+
+print(int_and_float_series.apply(int))
+
+# apply i lambda => zwiększenie liczby 10-krotnie 
+
+number_lambda = [20, 40, 60]
+
+number_lambda_series = pd.Series(number_lambda)
+
+print(number_lambda_series.apply(lambda x: x * 10))
