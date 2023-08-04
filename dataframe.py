@@ -25,3 +25,7 @@ schema_test = [
 logi_all = pd.DataFrame(test_one, columns=schema_test)
 
 print (logi_all)
+
+
+# 2 DataFrame
+
